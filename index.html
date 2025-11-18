@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Everest App - Links Oficiais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --everest-bg: #05060a;
+      --everest-card: #111827;
+      --everest-accent: #f97316;         /* laranja principal */
+      --everest-accent-soft: rgba(249, 115, 22, 0.16);
+      --everest-text: #f9fafb;
+      --everest-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #7c2d12 0, #020617 55%, #000 100%);
+      color: var(--everest-text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #020617 0%, #020617 40%, #0b1120 100%);
+      border-radius: 24px;
+      padding: 28px 22px 24px;
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(148, 163, 184, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.25), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(248, 250, 252, 0.12), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      border: 2px solid rgba(249, 115, 22, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 0, #f97316 0, #0f172a 45%, #020617 100%);
+      margin: 0 auto 14px;
+      position: relative;
+      box-shadow:
+        0 0 40px rgba(249, 115, 22, 0.55),
+        0 12px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .avatar span {
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #fff7ed;
+    }
+
+    .avatar::after {
+      content: "▲";
+      position: absolute;
+      bottom: -8px;
+      right: 14px;
+      font-size: 11px;
+      color: #fed7aa;
+      opacity: 0.9;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 4px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: var(--everest-muted);
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fed7aa;
+      margin: 0 auto 20px;
+    }
+
+    .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--everest-accent);
+      box-shadow: 0 0 12px rgba(249, 115, 22, 0.9);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .btn-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--everest-text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.25), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .btn-main {
+      border: 1px solid rgba(249, 115, 22, 0.9);
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      box-shadow:
+        0 10px 25px rgba(249, 115, 22, 0.45),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+      color: #1b130a;
+    }
+
+    .btn-main span {
+      font-weight: 600;
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      z-index: 1;
+    }
+
+    .btn-title {
+      font-size: 14px;
+    }
+
+    .btn-subtitle {
+      font-size: 11px;
+      color: var(--everest-muted);
+    }
+
+    .btn-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      z-index: 1;
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .btn-main .btn-icon {
+      background: rgba(124, 45, 18, 0.95);
+      border-color: #fed7aa;
+      color: #fff7ed;
+    }
+
+    .btn-link:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(148, 163, 184, 0.5);
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .btn-main:hover {
+      box-shadow:
+        0 14px 36px rgba(249, 115, 22, 0.6),
+        0 0 0 1px rgba(154, 52, 18, 0.9);
+      filter: brightness(1.04);
+    }
+
+    .btn-link:hover::before {
+      opacity: 1;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 10px;
+      color: var(--everest-muted);
+      margin-top: 6px;
+    }
+
+    .footer-text span {
+      color: #fed7aa;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 22px 18px 20px;
+      }
+      .title {
+        font-size: 20px;
+      }
+      .btn-link {
+        padding: 12px 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <main class="card">
+      <div class="card-inner">
+        <div class="avatar">
+          <!-- “logo” Everest só com texto; pode trocar por uma imagem -->
+          <span>EV</span>
+        </div>
+
+        <h1 class="title">Everest App</h1>
+        <p class="subtitle">Escolha sua loja de aplicativos e vem ativar suas vantagens. 🍊</p>
+
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>links oficiais</span>
+        </div>
+
+        <div class="links">
+          <!-- BOTÃO iOS -->
+          <a class="btn-link btn-main" href="https://apps.apple.com/" target="_blank" rel="noopener">
+            <div class="btn-text">
+              <span class="btn-title">Baixar no iOS (App Store)</span>
+              <span class="btn-subtitle">Ideal para iPhone e iPad</span>
+            </div>
+            <div class="btn-icon"></div>
+          </a>
+
+          <!-- BOTÃO Android -->
+          <a class="btn-link" href="https://play.google.com/store" target="_blank" rel="noopener">
+            <div class="btn-text">
+              <span class="btn-title">Baixar no Android (Play Store)</span>
+              <span class="btn-subtitle">Funciona nos aparelhos Android</span>
+            </div>
+            <div class="btn-icon">🤖</div>
+          </a>
+        </div>
+
+        <p class="footer-text">
+          Everest App — <span>vantagens que só quem tem, tem</span>.
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
